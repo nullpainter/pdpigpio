@@ -8,7 +8,7 @@ Raspberry Pi [PureData](https://puredata.info/) external to read analog values f
 
 # Prerequisites
 
-[pigpio](https://abyz.me.uk/rpi/pigpio/) is required in order to run this external. Additionally, PureData needs to be run as root.
+pigpio is required in order to run this external. Additionally, PureData needs to be run as root.
 
 # Usage
 
