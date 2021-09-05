@@ -1,4 +1,4 @@
-#N canvas 607 184 3366 1389 10;
+#N canvas 391 228 1503 1389 10;
 #X obj 135 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 135 53 metro 50;
@@ -23,14 +23,16 @@
 #X obj 129 172 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X text 330 50 Reads analog values from a MCP3008 connected to the
-Pi's GPIO using pigpio and bit-bashing.;
+Pi's GPIO using pigpio and bit bashing.;
 #X text 329 85 This techique allows more than two SPI devices to be
 connected using arbitrary CS pins. If multiple MCP3008 devices are
 used \, they can share the same MISO \, MOSI and SCLK and have different
 CS lines.;
-#X text 329 144 Usage: pigpio_mcp3008 cs_pin miso_pin mosi_pin sclk_pin
-;
-#X text 328 168 SPI is enabled on the first bang.;
+#X text 327 159 Usage: pigpio_mcp3008 cs miso mosi sclk;
+#X text 327 179 For example \, for CS on GPIO 25 \, MISO on GPIO 6
+\, MOSI on GPIO 12 and SCLK on GPIO 6 \, the command will be:;
+#X text 340 217 pigpio_mcp3008 25 6 12 5;
+#X text 328 243 Note that SPI is enabled on the first bang.;
 #X connect 0 0 5 0;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;

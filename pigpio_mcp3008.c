@@ -21,17 +21,17 @@ typedef struct _pigpio_mcp3008
 {
     t_object x_obj;
     t_outlet *x_out;
-    int x_cs_pin;
-    int x_miso_pin;
-    int x_mosi_pin;
-    int x_sclk_pin;
+    int x_cs_gpio;
+    int x_miso_gpio;
+    int x_mosi_gpio;
+    int x_sclk_gpio;
 
 } t_pigpio_mcp3008;
 
 static void pigpio_mcp3008_free(t_pigpio_mcp3008 *x)
 {
     // Close SPI connection
-    bbSPIClose(x->x_cs_pin);
+    bbSPIClose(x->x_cs_gpio);
 }
 
 static void pigpio_mcp3008_initialise(t_pigpio_mcp3008 *x)
@@ -42,7 +42,7 @@ static void pigpio_mcp3008_initialise(t_pigpio_mcp3008 *x)
     }
 
     // Open SPI connection
-    bbSPIOpen(x->x_cs_pin, x->x_miso_pin, x->x_mosi_pin, x->x_sclk_pin, BAUD, FLAGS);
+    bbSPIOpen(x->x_cs_gpio, x->x_miso_gpio, x->x_mosi_gpio, x->x_sclk_gpio, BAUD, FLAGS);
     initialised = true;
 }
 
@@ -64,7 +64,7 @@ static void pigpio_mcp3008_bang(t_pigpio_mcp3008 *x)
     for (int i = 0; i < INPUT_PINS; i++) 
     {
         command[1] = (i + 8) << 4;
-        bbSPIXfer(x->x_cs_pin, command, (char *)buffer, 3);
+        bbSPIXfer(x->x_cs_gpio, command, (char *)buffer, 3);
 
         // Extract value, normalise to 0-1
         value = (((buffer[1] & 3) << 8) | buffer[2]) / 1023.0f;
@@ -85,12 +85,12 @@ static void *pigpio_mcp3008_new(t_floatarg f1, t_floatarg f2, t_floatarg f3, t_f
     t_pigpio_mcp3008 *x = (t_pigpio_mcp3008 *)pd_new(pigpio_mcp3008_class);
 
     // Assign arguments
-    x->x_cs_pin = f1;
-    x->x_miso_pin = f2;
-    x->x_mosi_pin = f3;
-    x->x_sclk_pin = f4;
+    x->x_cs_gpio = f1;
+    x->x_miso_gpio = f2;
+    x->x_mosi_gpio = f3;
+    x->x_sclk_gpio = f4;
 
-    post("[pigpio_mcp3008] cs:%d, miso:%d, mosi:%d, sclk:%d", x->x_cs_pin, x->x_miso_pin, x->x_mosi_pin, x->x_sclk_pin);
+    post("[pigpio_mcp3008] cs:%d, miso:%d, mosi:%d, sclk:%d", x->x_cs_gpio, x->x_miso_gpio, x->x_mosi_gpio, x->x_sclk_gpio);
 
     if (geteuid() != 0)
     {
