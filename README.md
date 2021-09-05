@@ -18,7 +18,7 @@ The object's name is `pigpio_mcp3008`; right-click and select Help for usage ins
 
 Usage: `pigpio_mcp3008 cs miso mosi sclk`
 
-For example, for CS on GPIO 25, MISO on GPIO 6, MOSI on GPIO 12 and SCLK on GPIO 5, the command will be `pigpio_mcp3008 25 6 12 5`
+For example, for CS on GPIO 25, MISO on GPIO 6, MOSI on GPIO 16 and SCLK on GPIO 5, the command will be `pigpio_mcp3008 25 6 16 5`
 
 Note that SPI is enabled on the first bang.
 
