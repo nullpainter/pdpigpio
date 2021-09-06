@@ -11,7 +11,7 @@ static bool initialised = false;
 static unsigned char buffer[3];
 static char command[3];
 
-#define BAUD 10000
+#define BAUD 250000
 #define FLAGS 0 
 
 // Number of MCP3008 pins we're reading
@@ -98,6 +98,8 @@ static void *pigpio_mcp3008_new(t_floatarg f1, t_floatarg f2, t_floatarg f3, t_f
         exit(0);
     }
 
+    // Use PWM for timing DMA transfers, as PCM is used for audio
+    gpioCfgClock(5, 0, 0);
     if (gpioInitialise() < 0)
     {
         pd_error(x, "[pigpio_mcp3008] Unable to initialise GPIO; ensure pigpiod isn't running");
