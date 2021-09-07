@@ -10,6 +10,8 @@ Raspberry Pi [PureData](https://puredata.info/) external to read analog values f
 
 [pigpio](https://abyz.me.uk/rpi/pigpio/) is required in order to run this external. Additionally, PureData needs to be run as root.
 
+Finally, this plugin uses the PI's PWM hardware for timing DMA transfers. This will prevent the headphone jack from working; it is expected that you use a USB audio device.
+
 # Usage
 
 The repository comes with a precompiled PureData external. To use it, clone this repository and add its path to PureData (File -> Preferences -> Path...)
