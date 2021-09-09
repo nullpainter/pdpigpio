@@ -1,7 +1,7 @@
 # pigpio_mcp3008
 Raspberry Pi [PureData](https://puredata.info/) external to read analog values from an [MCP3008](https://www.microchip.com/en-us/product/MCP3008) connected to the Pi's GPIO. 
 
-`pigpio_mcp3008` uses [pigpio](https://abyz.me.uk/rpi/pigpio/) with bit bashing. Bit bashing allows more than two SPI devices to be connected to the Pi, using arbitrary CS pins. If multiple MCP3008 devices are used, they can share the same MISO, MOSI and SCLK but must use different CS lines. 
+`pigpio_mcp3008` uses [pigpio](https://abyz.me.uk/rpi/pigpio/) with bit banging. Bit banging allows more than two SPI devices to be connected to the Pi, using arbitrary CS pins. If multiple MCP3008 devices are used, they can share the same MISO, MOSI and SCLK but must use different CS lines. 
 
 <img src="images/pigpio_mcp3008.png" alt="Sample usage" width="400"/>
 
