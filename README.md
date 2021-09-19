@@ -22,5 +22,4 @@ Usage: `pigpio_mcp3008 cs miso mosi sclk`
 
 For example, for CS on GPIO 25, MISO on GPIO 6, MOSI on GPIO 16 and SCLK on GPIO 5, the command will be `pigpio_mcp3008 25 6 16 5`
 
-Note that SPI is enabled on the first bang.
-
+To enable, first send a bang to `pigpio_init`.
