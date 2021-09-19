@@ -89,7 +89,7 @@ static void *pigpio_mcp3008_new(t_floatarg f1, t_floatarg f2, t_floatarg f3, t_f
     x->x_sclk_gpio = f4;
 
     // Set constants
-    x->baud = 50000;
+    x->baud = 250000;
     x->flags = 0;
     x->input_pins = 8;
 
