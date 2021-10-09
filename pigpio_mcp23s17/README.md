@@ -19,9 +19,9 @@ Finally, this plugin uses the PI's PWM hardware for timing DMA transfers. This w
 
 The repository comes with a precompiled PureData external. To use it, clone this repository and add its path to PureData (File -> Preferences -> Path...)
 
-The object's name is `pigpio_23s17`; right-click and select Help for usage instructions.
+The object's name is `pigpio_mcp23s17`; right-click and select Help for usage instructions.
 
-Usage: `pigpio_23s17 cs miso mosi sclk`
+Usage: `pigpio_mcp23s17 cs miso mosi sclk`
 
 For example, for CS on GPIO 25, MISO on GPIO 6, MOSI on GPIO 16, SCLK on GPIO 5 and address 0, the command will be `pigpio_23s17 25 6 16 5`
 
