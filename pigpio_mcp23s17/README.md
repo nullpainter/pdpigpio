@@ -1,7 +1,7 @@
 # pigpio_mcp23s17
 Raspberry Pi [PureData](https://puredata.info/) external to read values from a [MCP23S17](https://www.microchip.com/en-us/product/MCP23S17) port expander connected to the Pi's GPIO pins. 
 
-`pigpio_mcp23s17` uses [pigpio](https://abyz.me.uk/rpi/pigpio/) with bit banging. Bit banging allows more than two SPI devices to be connected to the Pi, using arbitrary CS pins. If multiple MCP3008 devices are used, they can share the same MISO, MOSI and SCLK but must use different CS lines. Note that hardware addressing is currently not supported. If multiple ICs are connected, it is assumed they have separate CS lines.
+`pigpio_mcp23s17` uses [pigpio](https://abyz.me.uk/rpi/pigpio/) with bit banging. Bit banging allows more than two SPI devices to be connected to the Pi, using arbitrary CS pins. If multiple MCP23S17 devices are used, they can share the same MISO, MOSI and SCLK but must use different CS lines. Note that hardware addressing is currently not supported. If multiple ICs are connected, it is assumed they have separate CS lines.
 
 The MCP23S17's internal pull-up resistors are enabled for all pins so external pull-up resistors aren't required.
 
