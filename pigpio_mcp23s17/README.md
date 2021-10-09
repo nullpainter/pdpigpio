@@ -6,7 +6,7 @@ Raspberry Pi [PureData](https://puredata.info/) external to read values from a [
 The MCP23S17's internal pull-up resistors are enabled for all pins so external pull-up resistors aren't required.
 
 
-<img src="images/pigpio_mcp23s17.png" alt="Sample usage" width="400"/>
+<img src="images/pigpio_mcp23s17.png" alt="Sample usage"/>
 
 
 # Prerequisites
