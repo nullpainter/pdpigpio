@@ -16,9 +16,6 @@ typedef struct _pigpio_mcp3008
     int x_mosi_gpio;
     int x_sclk_gpio;
 
-    unsigned char buffer[3];
-    char command[3];
-
     int baud;
 
     // SPI flags
@@ -56,9 +53,12 @@ static void pigpio_mcp3008_bang(t_pigpio_mcp3008 *x)
 
         post("[pigpio_mcp3008] initialised for cs:%d", x->x_cs_gpio);
     }
+    
+    unsigned char buffer[3];
+    char command[3];
 
-    x->command[0] = 1;
-    x->command[2] = 0;
+    command[0] = 1;
+    command[2] = 0;
 
     t_atom values[x->input_pins];
     float value;
@@ -66,11 +66,11 @@ static void pigpio_mcp3008_bang(t_pigpio_mcp3008 *x)
     // Read from all MCP3008 input pins
     for (int i = 0; i < x->input_pins; i++)
     {
-        x->command[1] = (i + 8) << 4;
-        bbSPIXfer(x->x_cs_gpio, x->command, (char *)x->buffer, 3);
+        command[1] = (i + 8) << 4;
+        bbSPIXfer(x->x_cs_gpio, (char *)command, (char *)buffer, 3);
 
         // Extract value, normalise to 0-1
-        value = (((x->buffer[1] & 3) << 8) | x->buffer[2]) / 1023.0f;
+        value = (((buffer[1] & 3) << 8) | buffer[2]) / 1023.0f;
         SETFLOAT(&values[i], value);
     }
 
