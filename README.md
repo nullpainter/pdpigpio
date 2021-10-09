@@ -13,4 +13,8 @@ Reads and writes from GPIO pins.
 
 ## [pigpio_mcp3008](pigpio_mcp3008)
 
-Reads from mcp3008 ICs connected to arbitrary GPIO pins.
+Reads from MCP3008 ICs connected to arbitrary GPIO pins.
+
+## [pigpio_mcp23s17](pigpio_mcp23s17)
+
+Reads from MCPS17 ICs connected to arbitrary GPIO pins.
