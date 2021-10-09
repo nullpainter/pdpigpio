@@ -1,13 +1,11 @@
 #N canvas 1188 121 1503 1389 10;
-#X obj 135 83 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 135 53 metro 50;
-#X obj 135 26 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 135 82 metro 50;
+#X obj 135 55 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 135 140 unpack f f f f f f f f;
 #X obj 269 172 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
-#X obj 134 112 pigpio_mcp3008 25 6 12 5;
+#X obj 135 112 pigpio_mcp3008 25 6 12 5;
 #X obj 249 172 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 229 172 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
@@ -32,18 +30,17 @@ CS lines.;
 #X text 340 217 pigpio_mcp3008 25 6 12 5;
 #X text 327 179 For example \, for CS on GPIO 25 \, MISO on GPIO 6
 \, MOSI on GPIO 12 and SCLK on GPIO 5 \, the command will be:;
-#X obj 340 365 pigpio_init;
-#X obj 340 338 loadbang;
-#X connect 0 0 5 0;
+#X obj 371 337 pigpio_init;
+#X obj 371 310 loadbang;
+#X connect 0 0 4 0;
 #X connect 1 0 0 0;
-#X connect 2 0 1 0;
-#X connect 3 0 12 0;
-#X connect 3 1 11 0;
-#X connect 3 2 10 0;
-#X connect 3 3 9 0;
-#X connect 3 4 8 0;
-#X connect 3 5 7 0;
-#X connect 3 6 6 0;
-#X connect 3 7 4 0;
-#X connect 5 0 3 0;
-#X connect 19 0 18 0;
+#X connect 2 0 11 0;
+#X connect 2 1 10 0;
+#X connect 2 2 9 0;
+#X connect 2 3 8 0;
+#X connect 2 4 7 0;
+#X connect 2 5 6 0;
+#X connect 2 6 5 0;
+#X connect 2 7 3 0;
+#X connect 4 0 2 0;
+#X connect 18 0 17 0;
